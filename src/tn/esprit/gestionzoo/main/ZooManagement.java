@@ -44,7 +44,7 @@ public class ZooManagement {
         System.out.println(notMyZoo1);
 
 
-        Aquatiques aqua1 = new Aquatiques("nie", "canine", "fishy", 2, false);
+        Dolphin aqua1 = new Dolphin(70,"Dolphin", "Mammal", "Flipper", 5, true);
         Terrestiral terestre1 = new Terrestiral(2, "Canine", "Canine", 2, true);
         Dolphin dolphin = new Dolphin(70, "nie", "Canine", "Canine", 2, true);
         Penguin penguin = new Penguin(200, "sea", "pingwinet", "black", 2, false);
@@ -66,6 +66,14 @@ public class ZooManagement {
         aqua1.swim();
 
         dolphin.swim();
+
+
+//prosit6
+        Zoo zoo = new Zoo();
+       
+        zoo.addAquaticAnimal(new Dolphin(70,"Dolphin", "Mammal", "Flipper", 5, true));
+
+        zoo.addAquaticAnimal(new Penguin(200,"penguin", "Fish", "Goldie", 1, false));
 
     }
 }

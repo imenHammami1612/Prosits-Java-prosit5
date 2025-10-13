@@ -17,5 +17,8 @@ public class Penguin extends Aquatiques{
                 ", swimingDepth='" + swimmingDepth + '\'' +
                 '}';
     }
-
+ @Override
+    public void swim(){
+        System.out.println("this pinguin is swimming");
+    }
 }
