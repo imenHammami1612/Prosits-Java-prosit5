@@ -1,6 +1,8 @@
 package tn.esprit.gestionzoo.main;
 
 import tn.esprit.gestionzoo.entities.*;
+import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
 
 public class ZooManagement {
 
@@ -18,8 +20,6 @@ public class ZooManagement {
         Animal dog = new Animal("Canine", "Snoopy", 2, true);
 
 
-        System.out.println(myZoo.addAnimal(lion));
-        System.out.println(myZoo.addAnimal(dog));
 
         myZoo.displayAnimals();
 
@@ -33,9 +33,7 @@ public class ZooManagement {
 
         System.out.println(myZoo);
 
-        myZoo.addAnimal(lion);
-        myZoo.addAnimal(dog);
-        myZoo.addAnimal(dog2);
+      
         myZoo.displayAnimals();
 
 
@@ -75,5 +73,40 @@ public class ZooManagement {
 
         zoo.addAquaticAnimal(new Penguin(200,"penguin", "Fish", "Goldie", 1, false));
 
+   // Prosit 7 — Test de l’exception 
+        System.out.println("\n=== Test de la capacité du Zoo ===");
+
+        Zoo zooo = new Zoo("dofi", "Tunis"); 
+
+          try {
+            zooo.addAnimal(new Animal("Feline", "Lion", 4, true));
+            System.out.println("Animal ajouté : Lion");
+        } catch (ZooFullException | InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+        System.out.println("Nombre d’animaux : " + zoo.getNbrAnimals());
+
+        try {
+            zooo.addAnimal(new Animal("Canine", "Chien", -2, true));
+            System.out.println("Animal ajouté : Chien");
+        } catch (ZooFullException | InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+        System.out.println("Nombre d’animaux : " + zoo.getNbrAnimals());
+
+        try {
+            zooo.addAnimal(new Animal("Avian", "Aigle", 3, false));
+            System.out.println("Animal ajouté : Aigle");
+        } catch (ZooFullException | InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+
+
+
+        System.out.println("Nombre final d’animaux" + zoo.getNbrAnimals());
+        System.out.println("=== Fin du test ===");
+
+        zoo.addAquaticAnimal(new Dolphin(70,"Dolphin", "Mammal", "Flipper", 5, true));
+        zoo.addAquaticAnimal(new Penguin(200,"penguin", "Fish", "Goldie", 1, false));
     }
 }
